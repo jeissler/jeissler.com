@@ -1,0 +1,5 @@
+.codekit-cache
+config.codekit
+bower_components
+.idea
+sass/.sass-cache
