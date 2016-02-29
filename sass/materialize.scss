@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
 // Mixins
-// @import "bower_components/Materialize/sass/components/prefixer";
-@import "../bower_components/Materialize/sass/components/mixins";
-@import "../bower_components/Materialize/sass/components/color";
+//@import "bower_components/Materialize/sass/components/prefixer";
+//@import "../bower_components/Materialize/sass/components/mixins";
+//@import "../bower_components/Materialize/sass/components/color";
+@import "mixins";
 
 // Variables;
 @import "variables";
