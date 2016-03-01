@@ -113,14 +113,33 @@
         var newHeight = 0;
 
         if (widthPercent > heightPercent) {
+          //ratio = originalHeight / originalWidth;
+          //newWidth = windowWidth * 0.9;
+          //newHeight = windowWidth * 0.9 * ratio;
+        }
+        else {
+          //ratio = originalWidth / originalHeight;
+          //newWidth = (windowHeight * 0.9) * ratio;
+          //newHeight = windowHeight * 0.9;
+        }
+
+
+        // Mod for max width images
+        if (widthPercent > heightPercent) {
           ratio = originalHeight / originalWidth;
           newWidth = windowWidth * 0.9;
           newHeight = windowWidth * 0.9 * ratio;
         }
-        else {
+
+        else if (widthPercent < heightPercent && windowWidth < 1000) {
           ratio = originalWidth / originalHeight;
           newWidth = (windowHeight * 0.9) * ratio;
           newHeight = windowHeight * 0.9;
+        }
+
+        else {
+          newWidth = document.querySelector('.gallery img').naturalWidth;
+          newHeight = document.querySelector('.gallery img').naturalHeight;
         }
 
         // Animate image + set z-index
