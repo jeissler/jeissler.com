@@ -131,12 +131,6 @@
           newHeight = windowWidth * 0.9 * ratio;
         }
 
-        else if (widthPercent < heightPercent && windowWidth < 1000) {
-          ratio = originalWidth / originalHeight;
-          newWidth = (windowHeight * 0.9) * ratio;
-          newHeight = windowHeight * 0.9;
-        }
-
         else {
           newWidth = document.querySelector('.gallery img').naturalWidth;
           newHeight = document.querySelector('.gallery img').naturalHeight;
