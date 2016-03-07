@@ -58,9 +58,13 @@ p {
     width: 100%;
   }
 
-  .parallax img {
-    left: 0 !important;
-    top: 0 !important;
+  .parallax {
+    background: #000;
+
+    img {
+      left: 0 !important;
+      top: 0 !important;
+    }
   }
   // parallax-container
 }
