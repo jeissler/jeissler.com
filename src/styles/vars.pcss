@@ -1,0 +1,27 @@
+:root {
+  /* Variable */
+  --colorPrimary: #1e9023;
+  --colorSecondary: color(var(--colorPrimary) blackness(+15%));
+  --colorOverlay: color(var(--colorPrimary) a(77%));
+  --colorFont: #212121;
+
+  --fontSizeBase: 16px;
+  --fontSizeH1: 65px;
+  --fontSizeH2: calc(var(--fontSizeH1) - 10px);
+  --fontSizeH3: calc(var(--fontSizeH2) - 10px);
+  --fontSizeH4: calc(var(--fontSizeH3) - 10px);
+  --fontSizeH5: calc(var(--fontSizeH4) - 10px);
+  --fontSizeH6: calc(var(--fontSizeH5) - 10px);
+
+  --fontFamilyBase: "robotolight", arial, sans-serif;
+  --fontFamilyBold: "robotoregular", arial, sans-serif;
+  --fontFamilyHeader: "Oswald", arial, sans-serif;
+
+
+  /* Properties */
+  --animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+}
