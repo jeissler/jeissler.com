@@ -21,7 +21,8 @@
     "postcss-pxtorem": "^4.0.0",
     "sanitize.css": "^4.1.0",
     "scrollmagic": "^2.0.5",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "animate.css": "^3.5.2"
   },
   "babel": {
     "presets": [
@@ -34,8 +35,5 @@
     "css:watch": "nodemon --watch src --ext pcss --exec 'npm run css:compile'",
     "serve": "browser-sync start -s -f './index.html' './assets'",
     "start": "npm-run-all --parallel js:compile css:compile css:watch serve"
-  },
-  "dependencies": {
-    "animate.css": "^3.5.2"
   }
 }
