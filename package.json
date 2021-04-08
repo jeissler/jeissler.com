@@ -21,8 +21,8 @@
     "postcss-import": "^9.1.0",
     "postcss-pxtorem": "^4.0.0",
     "sanitize.css": "^4.1.0",
-    "scrollmagic": "^2.0.5",
-    "webpack": "^2.2.1"
+    "scrollmagic": "^2.0.8",
+    "webpack": "^5.31.0"
   },
   "babel": {
     "presets": [
