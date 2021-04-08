@@ -1,6 +1,11 @@
 /*
 * Page 
 */
+.container {
+  /* fixes pg box overhang */
+  max-width: 100%;
+}
+
 .bg-container {
   height: auto;
   color: #fff;
@@ -51,8 +56,9 @@
   }
 
   & h2 {
-    font-size: 2rem;
+    font-size: 1.77rem;
     margin-bottom: 2rem;
+    margin-top: .5rem;
     font-family: var(--fontFamilyBase);
 
     & span {
@@ -255,7 +261,7 @@ footer {
 .copyright {
   background: color(#000 a(.11));
   text-align: right;
-  padding: 5px 0;
+  padding: 5px 10px 5px 0;
 
   & span {
     color: var(--colorPrimary);
@@ -328,7 +334,7 @@ footer {
 /* skills bars */
 #skills {
   & .bar-inner.active {
-
+    
   }
   & .bar--html.active {
     height: 90%;
@@ -336,17 +342,14 @@ footer {
   & .bar--build.active {
     height: 80%;
   }
-  & .bar--php.active {
-    height: 70%;
-  }
   & .bar--js.active {
-    height: 60%;
+    height: 80%;
   }
   & .bar--api.active {
-    height: 60%;
+    height: 77%;
   }
   & .bar--git.active {
-    height: 80%;
+    height: 85%;
   }
 }
 
