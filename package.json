@@ -5,6 +5,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "animate.css": "^3.5.2",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-polyfill": "^6.23.0",
@@ -14,15 +15,14 @@
     "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
     "npm-run-all": "^4.0.2",
-    "postcss": "^5.2.14",
-    "postcss-cli": "^3.0.0-beta",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
     "postcss-pxtorem": "^4.0.0",
     "sanitize.css": "^4.1.0",
-    "scrollmagic": "^2.0.5",
-    "webpack": "^2.2.1",
-    "animate.css": "^3.5.2"
+    "scrollmagic": "^2.0.8",
+    "webpack": "^5.31.0"
   },
   "babel": {
     "presets": [
