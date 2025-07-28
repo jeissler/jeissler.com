@@ -22,7 +22,7 @@
 						<label>
 							<input name="bot" />
 						</label>
-						<input type="hidden" name="form-name" value="subscribe" />
+						<input type="hidden" name="form-name" value="contact" />
 					</p>
 					<input
 						type="text"
