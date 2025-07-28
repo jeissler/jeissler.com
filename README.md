@@ -1,8 +1,29 @@
 # jeissler.com
-This is the home for my personal site built using Nuxt and Vue 3's composition-api, generated statically using a github action. Primarily I wanted this site to be hosted on a gh-pages branch so SSG was a good option; using Nuxt/Vue I was able to keep operability of routing and theme management across features consistent.
 
----
-##### Uses: Vue, Nuxt, composition-api, generate (SSG), dev hot-reload (SSR)
----
+**Personal marketing site for Jeremy Eissler – Senior Software Engineer.**
 
-[Live Site](https://jeissler.com)
+This is a simple, lightweight site that serves as a public-facing touchpoint. It includes a brief introduction and a contact form, offering a minimal but polished web presence. This project doesn't aim to showcase code complexity or case studies—just that I'm here and open to connect.
+
+Made with 💻 by Jeremy Eissler.
+
+## 🛠 Tech Stack
+
+- **Framework:** Vue 3 
+- **Bundler:** Parcel
+- **Styling:** TailwindCSS v4
+- **Hosting:** Netlify
+
+## ✨ Features
+
+- Clean, responsive layout using Tailwind utility classes
+- Form handling with honeypot and reCAPTCHA support
+- Smooth scrolling and minimal footprint
+- Quick-deploy and simple setup
+
+## 🚀 Live Site
+
+View the live at site at [jeissler.com](https://jeissler.com), hosted and deployed via Netlify.
+
+## 📬 Contact
+
+To reach out, just fill out the form on the site or fork this repo and build your own portfolio.

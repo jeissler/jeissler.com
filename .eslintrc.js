@@ -1,18 +1,21 @@
-module.exports = {
-  root: true,
+export default {
   env: {
     browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
+    es2021: true,
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended'
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:prettier/recommended', // Enables eslint-plugin-prettier
+    'prettier', // Disables ESLint rules that conflict with Prettier
   ],
-  plugins: [
-  ],
-  // add your custom rules here
-  rules: {}
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['vue', 'prettier'],
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'prettier/prettier': 'error', // Shows Prettier errors as ESLint errors
+  },
 }

@@ -1,3 +1,6 @@
-.idea
-.DS_Store
 node_modules
+dist
+.parcel-cache
+.netlifty
+.DS_Store
+.env
