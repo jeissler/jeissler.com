@@ -15,7 +15,6 @@
 					name="contact"
 					data-netlify="true"
 					data-netlify-honeypot="bot"
-					data-netlify-recaptcha="true"
 					@submit.prevent="submitForm"
 				>
 					<p class="hidden">
@@ -52,9 +51,8 @@
 						class="border border-zinc-300 p-3 rounded-md w-full"
 					></textarea>
 
-					<div class="mt-3 flex flex-col items-center justify-center">
-            <div data-netlify-recaptcha="true"></div>
-						<span v-if="error" class="text-red-600 text-lg mb-2">
+					<div v-if="error" class="mt-3 flex flex-col items-center justify-center">
+						<span class="text-red-600 text-lg mb-2">
 							*{{ error }}
 						</span>
 					</div>
