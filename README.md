@@ -26,4 +26,4 @@ View the live at site at [jeissler.com](https://jeissler.com), hosted and deploy
 
 ## 📬 Contact
 
-To reach out, just fill out the form on the site or fork this repo and build your own portfolio.
+To reach out, just fill out the form on the site or catch me on [linkedin](https://www.linkedin.com/in/jeissler/).
