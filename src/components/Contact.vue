@@ -4,55 +4,77 @@
 		class="bg-[#f4efe8] px-6 py-16 border-t border-zinc-200 min-h-screen"
 	>
 		<div class="max-w-xl mx-auto text-center">
-			<h3 class="text-xl font-semibold mb-4">Contact</h3>
-			<p class="mb-6 text-zinc-700">
-				Reach out about new opportunities, collaborations or to just say hello.
-			</p>
-			<form
-				class="flex flex-col gap-4 text-left"
-				data-netlify="true"
-				data-netlify-honeypot="bot"
-				data-netlify-recaptcha="true"
-				@submit.prevent="submitForm"
-			>
-				<input type="hidden" name="form-name" value="contact" />
-				<input
-					type="text"
-					name="name"
-					placeholder="Your Name"
-					required
-					class="border border-zinc-300 p-3 rounded-md w-full"
-				/>
-				<input
-					type="email"
-					name="email"
-					placeholder="Your Email"
-					required
-					class="border border-zinc-300 p-3 rounded-md w-full"
-				/>
-				<input
-					type="text"
-					name="company"
-					placeholder="Company Name"
-					class="border border-zinc-300 p-3 rounded-md w-full"
-				/>
-				<textarea
-					name="message"
-					rows="4"
-					placeholder="Your Message"
-					required
-					class="border border-zinc-300 p-3 rounded-md w-full"
-				></textarea>
-
-				<div class="mt-3 flex justify-center" data-netlify-recaptcha="true" />
-
-				<button
-					type="submit"
-					class="self-start px-5 py-2 border border-zinc-800 hover:bg-zinc-800 hover:text-white transition rounded-md cursor-pointer"
+			<template v-if="!submitted">
+				<h3 class="text-xl font-semibold mb-4">Contact</h3>
+				<p class="mb-6 text-zinc-700">
+					Reach out about new opportunities, collaborations or to just say
+					hello.
+				</p>
+				<form
+					class="flex flex-col gap-4 text-left"
+					name="contact"
+					data-netlify="true"
+					data-netlify-honeypot="bot"
+					data-netlify-recaptcha="true"
+					@submit.prevent="submitForm"
 				>
-					Send Message
-				</button>
-			</form>
+					<p class="hidden">
+						<label>
+							<input name="bot" />
+						</label>
+						<input type="hidden" name="form-name" value="subscribe" />
+					</p>
+					<input
+						type="text"
+						name="name"
+						placeholder="Your Name"
+						required
+						class="border border-zinc-300 p-3 rounded-md w-full"
+					/>
+					<input
+						type="email"
+						name="email"
+						placeholder="Your Email"
+						required
+						class="border border-zinc-300 p-3 rounded-md w-full"
+					/>
+					<input
+						type="text"
+						name="company"
+						placeholder="Company Name"
+						class="border border-zinc-300 p-3 rounded-md w-full"
+					/>
+					<textarea
+						name="message"
+						rows="4"
+						placeholder="Your Message"
+						required
+						class="border border-zinc-300 p-3 rounded-md w-full"
+					></textarea>
+
+					<div class="mt-3 flex flex-col items-center justify-center">
+						<span v-if="error" class="text-red-600 text-lg mb-2">
+							*{{ error }}
+						</span>
+						<div v-else data-netlify-recaptcha="true"></div>
+					</div>
+
+					<button
+						type="submit"
+						class="self-start px-5 py-2 border border-zinc-800 hover:bg-zinc-800 hover:text-white transition rounded-md cursor-pointer"
+					>
+						Send Message
+					</button>
+				</form>
+			</template>
+			<template v-else>
+				<div class="py-16 flex flex-col items-center justify-center">
+					<h4 class="text-2xl font-semibold mb-4">Thank you!</h4>
+					<p class="text-lg text-zinc-700">
+						Your message has been sent. I’ll get back to you soon.
+					</p>
+				</div>
+			</template>
 		</div>
 	</section>
 </template>

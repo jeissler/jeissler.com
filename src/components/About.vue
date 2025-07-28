@@ -5,8 +5,8 @@
 			<p class="text-base text-zinc-700 leading-relaxed mb-8">
 				Senior Frontend Engineer with 10+ years experience designing performant,
 				user-centered applications and product ecosystems. My work spans AI
-				tooling, Vue SSR platforms, and developer-first UI systems. Currently
-				transitioning into leadership-focused roles while continuing to champion
+				tooling, SSR platforms, and user-first UI/UX systems. Currently
+				transitioning into architecture-focused roles while continuing to champion
 				fast feedback loops and resilient design.
 			</p>
 
