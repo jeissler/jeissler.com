@@ -15,7 +15,6 @@
 					name="contact"
 					data-netlify="true"
 					data-netlify-honeypot="bot"
-					data-netlify-recaptcha="true"
 					@submit.prevent="submitForm"
 				>
 					<p class="hidden">
@@ -56,7 +55,6 @@
 						<span v-if="error" class="text-red-600 text-lg mb-2">
 							*{{ error }}
 						</span>
-						<div v-else data-netlify-recaptcha="true"></div>
 					</div>
 
 					<button
@@ -91,6 +89,9 @@ async function submitForm({ target }) {
 		// encode data for netlify forms
 		const formData = new FormData(target)
 		const encodedData = new URLSearchParams(formData).toString()
+
+    console.log(encodedData);
+    
 
 		await axios.post('/', encodedData, {
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
