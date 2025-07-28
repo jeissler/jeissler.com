@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "postbuild": "cp _redirects dist/_redirects",
     "lint": "eslint --fix 'src/**/*.{js,vue}'",
     "format": "prettier --write 'src/**/*.{js,vue}'"
   },
