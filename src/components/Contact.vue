@@ -10,7 +10,9 @@
 					Reach out about new opportunities, collaborations or to just say
 					hello.
 				</p>
-				<form
+
+				<Form
+					:validation-schema="schema"
 					class="flex flex-col gap-4 text-left"
 					name="contact"
 					data-netlify="true"
@@ -23,38 +25,52 @@
 						</label>
 						<input type="hidden" name="form-name" value="contact" />
 					</p>
-					<input
-						type="text"
-						name="name"
-						placeholder="Your Name"
-						required
-						class="border border-zinc-300 p-3 rounded-md w-full"
-					/>
-					<input
-						type="email"
-						name="email"
-						placeholder="Your Email"
-						required
-						class="border border-zinc-300 p-3 rounded-md w-full"
-					/>
-					<input
-						type="text"
-						name="company"
-						placeholder="Company Name"
-						class="border border-zinc-300 p-3 rounded-md w-full"
-					/>
-					<textarea
-						name="message"
-						rows="4"
-						placeholder="Your Message"
-						required
-						class="border border-zinc-300 p-3 rounded-md w-full"
-					></textarea>
 
-					<div v-if="error" class="mt-3 flex flex-col items-center justify-center">
-						<span class="text-red-600 text-lg mb-2">
-							*{{ error }}
-						</span>
+					<div>
+						<Field
+							name="name"
+							type="text"
+							placeholder="Your Name"
+							class="border border-zinc-300 p-3 rounded-md w-full"
+						/>
+						<ErrorMessage name="name" class="mt-1 text-red-600 text-sm" />
+					</div>
+
+					<div>
+						<Field
+							name="email"
+							type="email"
+							placeholder="Your Email"
+							class="border border-zinc-300 p-3 rounded-md w-full"
+						/>
+						<ErrorMessage name="email" class="mt-1 text-red-600 text-sm" />
+					</div>
+
+					<div>
+						<Field
+							name="company"
+							type="text"
+							placeholder="Company Name (Optional)"
+							class="border border-zinc-300 p-3 rounded-md w-full"
+						/>
+					</div>
+
+					<div>
+						<Field
+							name="message"
+							as="textarea"
+							rows="4"
+							placeholder="Your Message"
+							class="border border-zinc-300 p-3 rounded-md w-full"
+						/>
+						<ErrorMessage name="message" class="mt-1 text-red-600 text-sm" />
+					</div>
+
+					<div
+						v-if="serverError"
+						class="mt-3 flex flex-col items-center justify-center"
+					>
+						<span class="text-red-600 text-lg mb-2"> *{{ serverError }} </span>
 					</div>
 
 					<button
@@ -63,13 +79,13 @@
 					>
 						Send Message
 					</button>
-				</form>
+				</Form>
 			</template>
 			<template v-else>
 				<div class="py-16 flex flex-col items-center justify-center">
 					<h4 class="text-2xl font-semibold mb-4">Thank you!</h4>
 					<p class="text-lg text-zinc-700">
-						Your message has been sent. I’ll get back to you soon.
+						Your message has been sent. I'll get back to you soon.
 					</p>
 				</div>
 			</template>
@@ -80,16 +96,31 @@
 <script setup>
 import axios from 'axios'
 import { ref } from 'vue'
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate'
+import { required, email, min } from '@vee-validate/rules'
+
+// Define validation rules
+defineRule('required', required)
+defineRule('email', email)
+defineRule('min', min)
+
+// Validation schema
+const schema = {
+	name: 'required',
+	email: 'required|email',
+	company: '', // Optional field
+	message: 'required|min:10',
+}
 
 const submitted = ref(false)
-const error = ref('')
+const serverError = ref('')
 
 async function submitForm({ target }) {
 	try {
 		// encode data for netlify forms
 		const formData = new FormData(target)
 		const encodedData = new URLSearchParams(formData).toString()
-    
+
 		await axios.post('/', encodedData, {
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 		})
@@ -97,7 +128,7 @@ async function submitForm({ target }) {
 		submitted.value = true
 	} catch (err) {
 		console.error('Error:', err)
-		error.value =
+		serverError.value =
 			'There was an error submitting the form. Please try again later.'
 	}
 }
