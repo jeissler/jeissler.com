@@ -16,7 +16,7 @@ Made with 💻 by Jeremy Eissler.
 ## ✨ Features
 
 - Clean, responsive layout using Tailwind utility classes
-- Form handling with honeypot
+- Form handling with validation
 - Smooth scrolling and minimal footprint
 - Quick-deploy and simple setup
 

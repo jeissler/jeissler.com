@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="contact"
-		class="bg-[#f4efe8] px-6 py-16 border-t border-zinc-200 min-h-screen"
+		class="bg-brand px-6 py-16 border-t border-zinc-200 min-h-screen"
 	>
 		<div class="max-w-xl mx-auto text-center">
 			<template v-if="!submitted">
@@ -96,21 +96,16 @@
 <script setup>
 import axios from 'axios'
 import { ref } from 'vue'
-import { Form, Field, ErrorMessage, defineRule } from 'vee-validate'
-import { required, email, min } from '@vee-validate/rules'
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
 
-// Define validation rules
-defineRule('required', required)
-defineRule('email', email)
-defineRule('min', min)
-
-// Validation schema
-const schema = {
-	name: 'required',
-	email: 'required|email',
-	company: '', // Optional field
-	message: 'required|min:10',
-}
+// Validation schema with custom messages
+const schema = yup.object({
+	name: yup.string().required('The name field is required'),
+	email: yup.string().required('The email field is required').email('The email field is invalid'),
+	company: yup.string(), // Optional field
+	message: yup.string().required('The message field is required').min(10, 'The message field must be at least 10 characters long')
+})
 
 const submitted = ref(false)
 const serverError = ref('')
