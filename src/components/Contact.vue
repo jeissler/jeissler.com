@@ -1,8 +1,5 @@
 <template>
-	<section
-		id="contact"
-		class="px-6 py-16"
-	>
+	<section id="contact" class="px-6 py-16">
 		<div class="max-w-xl mx-auto text-center">
 			<template v-if="!submitted">
 				<h3 class="text-xl font-semibold mb-4">Contact</h3>
@@ -102,9 +99,15 @@ import * as yup from 'yup'
 // Validation schema with custom messages
 const schema = yup.object({
 	name: yup.string().required('The name field is required'),
-	email: yup.string().required('The email field is required').email('The email field is invalid'),
+	email: yup
+		.string()
+		.required('The email field is required')
+		.email('The email field is invalid'),
 	company: yup.string(), // Optional field
-	message: yup.string().required('The message field is required').min(10, 'The message field must be at least 10 characters long')
+	message: yup
+		.string()
+		.required('The message field is required')
+		.min(10, 'The message field must be at least 10 characters long'),
 })
 
 const submitted = ref(false)
