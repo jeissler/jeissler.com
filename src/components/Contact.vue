@@ -17,7 +17,7 @@
 					name="contact"
 					data-netlify="true"
 					data-netlify-honeypot="bot"
-					@submit.prevent="submitForm"
+					@submit="submitForm"
 				>
 					<p class="hidden">
 						<label>
