@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="contact"
-		class="bg-brand px-6 py-16 border-t border-zinc-200 min-h-screen"
+		class="px-6 py-16"
 	>
 		<div class="max-w-xl mx-auto text-center">
 			<template v-if="!submitted">
