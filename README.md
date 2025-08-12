@@ -1,29 +1,39 @@
-# jeissler.com
+# jeissler-new
 
-**Personal marketing site for Jeremy Eissler – Senior Software Engineer.**
+This template should help get you started developing with Vue 3 in Vite.
 
-This is a simple, lightweight site that serves as a public-facing touchpoint. It includes a brief introduction and a contact form, offering a minimal but polished web presence. This project doesn't aim to showcase code complexity or case studies—just that I'm here and open to connect.
+## Recommended IDE Setup
 
-Made with 💻 by Jeremy Eissler.
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## 🛠 Tech Stack
+## Type Support for `.vue` Imports in TS
 
-- **Framework:** Vue 3 
-- **Bundler:** Parcel
-- **Styling:** TailwindCSS v4
-- **Hosting:** Netlify
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## ✨ Features
+## Customize configuration
 
-- Clean, responsive layout using Tailwind utility classes
-- Form handling with validation
-- Smooth scrolling and minimal footprint
-- Quick-deploy and simple setup
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-## 🚀 Live Site
+## Project Setup
 
-View the live at site at [jeissler.com](https://jeissler.com), hosted and deployed via Netlify.
+```sh
+npm install
+```
 
-## 📬 Contact
+### Compile and Hot-Reload for Development
 
-To reach out, just fill out the form on the site or catch me on [linkedin](https://www.linkedin.com/in/jeissler/).
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
