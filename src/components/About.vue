@@ -4,10 +4,11 @@
 			<h2 class="text-2xl font-semibold mb-4">About Me</h2>
 			<p class="text-base text-zinc-700 leading-relaxed mb-8">
 				Senior Frontend Engineer with 10+ years experience designing performant,
-				user-centered applications and product ecosystems. My work spans AI
-				tooling, SSR platforms, and user-first UI/UX systems. Currently
-				transitioning into architecture-focused roles while continuing to
-				champion fast feedback loops and resilient design.
+				user-centered applications and product ecosystems. My work spans from
+				modern frameworks, tooling upgrades and server rendering to complex
+				user-focused design systems. Currently transitioning into
+				architecture-focused roles while continuing to champion fast feedback
+				loops and resilient systems.
 			</p>
 
 			<router-link
