@@ -7,7 +7,7 @@ export const useThemeStore = defineStore('theme', () => {
   // Check if we're in a browser environment
   const isClient = typeof window !== 'undefined'
 
-  const theme = ref(isClient ? localStorage.getItem('theme') || themes[0] : themes[0])
+  const theme = ref(isClient ? localStorage.getItem('theme') : themes[0])
 
   const contrastActive = computed({
     get: () => theme.value === 'contrast',
