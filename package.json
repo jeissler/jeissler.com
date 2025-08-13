@@ -1,41 +1,50 @@
 {
   "name": "jeissler.com",
-  "version": "1.0.0",
-  "description": "Personal bio site",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "postbuild": "cp _redirects dist/_redirects",
-    "lint": "eslint --fix 'src/**/*.{js,vue}'",
-    "format": "prettier --write 'src/**/*.{js,vue}'"
+    "dev": "vite",
+    "build": "run-s type-check build-only",
+    "prerender": "tsx prerender.ts",
+    "build:static": "npm run build && npm run prerender",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jeissler/jeissler.com.git"
-  },
-  "author": "Jeremy Eissler",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jeissler/jeissler.com/issues"
-  },
-  "homepage": "jeissler.com",
-  "devDependencies": {
-    "@parcel/transformer-vue": "^2.15.4",
-    "@tailwindcss/postcss": "^4.1.11",
-    "@vee-validate/rules": "^4.15.1",
-    "axios": "^1.11.0",
-    "buffer": "^6.0.3",
-    "eslint": "^9.32.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.3",
-    "eslint-plugin-vue": "^10.3.0",
-    "parcel": "^2.15.4",
-    "prettier": "^3.6.2",
-    "tailwindcss": "^4.1.11",
-    "vee-validate": "^4.15.1",
+  "dependencies": {
+    "@unhead/vue": "^2.0.14",
+    "pinia": "^3.0.3",
     "vue": "^3.5.18",
-    "vue-router": "^4.5.1",
-    "yup": "^1.6.1"
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.16.5",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/server-renderer": "^3.5.18",
+    "@vue/tsconfig": "^0.7.0",
+    "axios": "^1.11.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-vue": "~10.3.0",
+    "jiti": "^2.4.2",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "3.6.2",
+    "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.4",
+    "typescript": "~5.8.0",
+    "vee-validate": "^4.15.1",
+    "vite": "^7.0.6",
+    "vite-plugin-vue-devtools": "^8.0.0",
+    "vue-tsc": "^3.0.4",
+    "yup": "^1.7.0"
   }
 }
