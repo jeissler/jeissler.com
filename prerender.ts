@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { renderToString } from '@vue/server-renderer'
 import { createServer } from 'vite'
+import { transformHtmlTemplate } from '@unhead/vue/server'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -16,7 +17,7 @@ if (!fs.existsSync(manifestPath)) {
 }
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'))
 
-// Find main entry in manifest
+// Main entry in manifest
 const entryKey = manifest['src/main.ts']
   ? 'src/main.ts'
   : Object.keys(manifest).find((k) => manifest[k].isEntry) || ''
@@ -24,7 +25,7 @@ const entryKey = manifest['src/main.ts']
 if (!entryKey) throw new Error('Could not find an entry in manifest.json')
 const entry = manifest[entryKey]
 
-// Collect asset file paths
+// Asset file paths
 const jsFiles: string[] = [
   entry.file,
   ...(entry.imports || []).map((k: string) => manifest[k].file),
@@ -44,11 +45,11 @@ async function prerender() {
   })
 
   try {
-    // Load SSR entry through Vite
+    // Load SSR entry
     const { createApp } = await vite.ssrLoadModule('/src/main.ssr.ts')
 
     for (const url of routes) {
-      const { app, router } = createApp(url)
+      const { app, router, head } = createApp(url)
       await router.isReady()
 
       const appHtml = await renderToString(app)
@@ -56,31 +57,32 @@ async function prerender() {
       const cssLinks = cssFiles.map((f) => `<link rel="stylesheet" href="/${f}">`).join('\n')
       const jsScripts = jsFiles.map((f) => `<script type="module" src="/${f}"></script>`).join('\n')
 
-      const html = `<!doctype html>
-      <html lang="en">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width,initial-scale=1" />
-          <title>${url === '/' ? 'Home' : 'Contact'}</title>
-          ${cssLinks}
-        </head>
-        <body>
-          <div id="app">${appHtml}</div>
-          ${jsScripts}
-        </body>
-      </html>`
+      // Base HTML template
+      const template = `<!doctype html>
+        <html class="scroll-smooth">
+          <head>
+            ${cssLinks}
+          </head>
+          <body class="min-h-screen bg-white text-zinc-900">
+            <div id="app">${appHtml}</div>
+            ${jsScripts}
+          </body>
+        </html>`
+
+      // Inject unhead tags
+      const html = await transformHtmlTemplate(head, template)
 
       const outfile = path.join(distDir, url === '/' ? 'index.html' : `${url.slice(1)}.html`)
       fs.mkdirSync(path.dirname(outfile), { recursive: true })
       fs.writeFileSync(outfile, html)
       console.log(`✓ prerendered ${url} -> ${path.relative(process.cwd(), outfile)}`)
     }
+  } catch (e) {
+    console.error('Prerender failed:', e)
+    process.exit(1)
   } finally {
     await vite.close()
   }
 }
 
-prerender().catch((e) => {
-  console.error(e)
-  process.exit(1)
-})
+prerender()

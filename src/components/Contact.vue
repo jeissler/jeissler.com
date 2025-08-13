@@ -114,8 +114,6 @@ async function submitForm(values: Record<string, string>): Promise<void> {
       params.append(key, value)
     }
 
-    console.log(params.toString())
-
     await axios.post('/', params.toString(), {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     })

@@ -1,8 +1,25 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
+import { useHead } from '@unhead/vue'
 
 const routes = [
-  { path: '/', name: 'home', component: () => import('../App.vue') },
-  { path: '/contact', name: 'contact', component: () => import('../App.vue') },
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/App.vue'),
+    meta: {
+      title: 'Home',
+      description: 'Howdy! I am a maker, doer and way-finding software engineer.',
+    },
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('@/App.vue'),
+    meta: {
+      title: 'Contact',
+      description: 'Reach out about opportunities, projects or just say hello.',
+    },
+  },
 ]
 
 const isClient = typeof window !== 'undefined'
@@ -22,6 +39,20 @@ export function makeRouter(ssr: boolean) {
       }
       return { top: 0 }
     },
+  })
+
+  router.beforeResolve((to) => {
+    if (to.meta?.title) {
+      useHead({
+        title: to.meta.title as string,
+        meta: [
+          {
+            name: 'description',
+            content: to.meta.description as string,
+          },
+        ],
+      })
+    }
   })
 
   return router
