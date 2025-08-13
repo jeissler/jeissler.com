@@ -66,14 +66,6 @@ async function prerender() {
           <body class="min-h-screen bg-white text-zinc-900">
             <div id="app">${appHtml}</div>
             ${jsScripts}
-            <form name="contact" netlify netlify-honeypot="bot" hidden>
-              <input name="bot" />
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="text" name="name" />
-              <input type="email" name="email" />
-              <input type="text" name="company" />
-              <textarea name="message"></textarea>
-            </form>
           </body>
         </html>`
 

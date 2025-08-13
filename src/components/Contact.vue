@@ -110,6 +110,8 @@ async function submitForm(values: Record<string, string>): Promise<void> {
   try {
     // Encode data for netlify forms
     const params = new URLSearchParams()
+    params.append('form-name', 'contact')
+
     for (const [key, value] of Object.entries(values)) {
       params.append(key, value)
     }
