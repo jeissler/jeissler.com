@@ -1,25 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import App from '../App.vue'
+import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', name: 'home', component: App },
-  { path: '/contact', name: 'contact', component: App },
+  { path: '/', name: 'home', component: () => import('../App.vue') },
+  { path: '/contact', name: 'contact', component: () => import('../App.vue') },
 ]
 
-const scrollToSection = (name: string) => {
-  const el = document.getElementById(name)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
+const isClient = typeof window !== 'undefined'
+
+export function makeRouter(ssr: boolean) {
+  const history = ssr ? createMemoryHistory() : createWebHistory()
+
+  const router = createRouter({
+    history,
+    routes,
+    scrollBehavior(to) {
+      if (isClient && to.name === 'contact') {
+        requestAnimationFrame(() => {
+          const el = document.getElementById('contact')
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        })
+      }
+      return { top: 0 }
+    },
+  })
+
+  return router
 }
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to) {
-    if (to.name === 'contact') {
-      setTimeout(() => scrollToSection(to.name as string), 0)
-    }
-    return { top: 0 }
-  },
-})
-
-export default router
