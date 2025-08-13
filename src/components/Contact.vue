@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="px-6 py-16 contrast:bg-white">
+  <section id="contact" class="px-6 py-16">
     <div class="max-w-xl mx-auto text-center">
       <template v-if="!submitted">
         <h3 class="text-xl font-semibold mb-4">Contact</h3>

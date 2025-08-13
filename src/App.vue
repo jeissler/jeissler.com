@@ -5,10 +5,12 @@
       <Intro />
       <About />
     </div>
-    <div class="bg-brand border-t border-zinc-200 min-h-screen">
+    <div
+      class="bg-brand contrast:bg-white border-t border-zinc-200 min-h-screen h-full flex flex-col"
+    >
       <Contact />
       <footer
-        class="text-sm text-right p-2 pr-4 text-zinc-500 contrast:bg-gradient-to-br contrast:from-indigo-900 contrast:to-brand-contrast contrast:text-white transition"
+        class="text-sm text-right p-2 pr-4 mt-auto text-zinc-500 contrast:bg-gradient-to-br contrast:from-indigo-900 contrast:to-brand-contrast contrast:text-white transition"
       >
         © {{ currentYear }} jeissler.com
       </footer>
