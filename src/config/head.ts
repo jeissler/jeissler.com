@@ -1,7 +1,7 @@
 export const headConfig = {
   init: [
     {
-      title: 'Jeremy Eissler',
+      title: 'Way Finder',
       titleTemplate: '%s | Jeremy Eissler',
       htmlAttrs: { lang: 'en' },
       meta: [
