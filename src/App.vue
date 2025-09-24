@@ -1,18 +1,20 @@
 <template>
   <div :class="theme === 'default' ? '' : theme">
     <Theme />
-    <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-1 md:grid-rows-1 min-h-screen">
+    <main class="grid grid-cols-1 md:grid-cols-2 grid-rows-1 md:grid-rows-1 min-h-screen">
       <Intro />
       <About />
-    </div>
+    </main>
     <div
       class="bg-brand contrast:bg-white border-t border-zinc-200 min-h-screen h-full flex flex-col"
     >
       <Contact />
       <footer
-        class="text-sm text-right p-2 pr-4 mt-auto text-zinc-500 contrast:bg-gradient-to-br contrast:from-indigo-900 contrast:to-brand-contrast contrast:text-white transition"
+        class="p-2 pr-4 mt-auto contrast:bg-gradient-to-br contrast:from-indigo-900 contrast:to-brand-contrast transition"
       >
-        © {{ currentYear }} jeissler.com
+        <p class="text-sm text-right text-zinc-500 contrast:text-white">
+          © {{ currentYear }} jeissler.com
+        </p>
       </footer>
     </div>
   </div>
