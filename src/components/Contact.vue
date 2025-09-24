@@ -15,15 +15,14 @@
           data-netlify-honeypot="bot"
           @submit="submitForm"
         >
-          <p class="hidden">
-            <label>
-              <input name="bot" />
-            </label>
-            <input type="hidden" name="form-name" value="contact" />
-          </p>
+          <label class="hidden">
+            <input name="bot" />
+          </label>
 
           <div>
+            <label for="name" class="sr-only">Your Name (Required)</label>
             <Field
+              id="name"
               name="name"
               type="text"
               placeholder="Your Name"
@@ -33,7 +32,9 @@
           </div>
 
           <div>
+            <label for="email" class="sr-only">Your Email (Required)</label>
             <Field
+              id="email"
               name="email"
               type="email"
               placeholder="Your Email"
@@ -43,7 +44,9 @@
           </div>
 
           <div>
+            <label for="company" class="sr-only">Company Name (Optional)</label>
             <Field
+              id="company"
               name="company"
               type="text"
               placeholder="Company Name (Optional)"
@@ -52,7 +55,9 @@
           </div>
 
           <div>
+            <label for="message" class="sr-only">Your Message (Required)</label>
             <Field
+              id="message"
               name="message"
               as="textarea"
               rows="4"
@@ -62,7 +67,12 @@
             <ErrorMessage name="message" class="mt-1 text-red-600 text-sm" />
           </div>
 
-          <div v-if="serverError" class="mt-3 flex flex-col items-center justify-center">
+          <div
+            v-if="serverError"
+            class="mt-3 flex flex-col items-center justify-center"
+            role="alert"
+            aria-live="polite"
+          >
             <span class="text-red-600 text-lg mb-2"> *{{ serverError }} </span>
           </div>
 

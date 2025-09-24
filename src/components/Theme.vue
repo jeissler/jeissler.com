@@ -6,9 +6,11 @@
     >
       <span
         class="absolute mx-auto h-4 w-9 rounded-full bg-brand inset-ring inset-ring-gray-900/15 transition-colors duration-200 ease-in-out group-has-checked:bg-brand-contrast"
+        aria-hidden="true"
       />
       <span
         class="absolute left-0 size-5 rounded-full border border-gray-300 bg-white shadow-xs transition-transform duration-200 ease-in-out group-has-checked:translate-x-5"
+        aria-hidden="true"
       />
       <input
         v-model="contrastActive"
@@ -17,6 +19,7 @@
         aria-label="Theme toggle"
         name="theme"
         id="theme-toggle"
+        role="switch"
       />
     </div>
   </div>

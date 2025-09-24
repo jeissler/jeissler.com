@@ -13,14 +13,18 @@
       <a
         href="https://github.com/jeissler"
         target="_blank"
+        rel="noopener noreferrer"
         class="hover:underline contrast:text-indigo-200 contrast:hover:text-white"
+        aria-label="GitHub (opens in new tab)"
       >
         GitHub
       </a>
       <a
         href="https://linkedin.com/in/jeissler"
         target="_blank"
+        rel="noopener noreferrer"
         class="hover:underline contrast:text-indigo-200 contrast:hover:text-white"
+        aria-label="LinkedIn (opens in new tab)"
       >
         LinkedIn
       </a>
