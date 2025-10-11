@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/App.vue'),
+    component: () => import('@/pages/Home.vue'),
     meta: {
       title: 'Home',
       description: 'Howdy! I am a maker, doer and way-finding software engineer.',
@@ -14,10 +14,19 @@ const routes = [
   {
     path: '/contact',
     name: 'contact',
-    component: () => import('@/App.vue'),
+    component: () => import('@/pages/Home.vue'),
     meta: {
       title: 'Contact',
       description: 'Reach out about opportunities, projects or just say hello.',
+    },
+  },
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: () => import('@/pages/Portfolio.vue'),
+    meta: {
+      title: 'Portfolio Projects',
+      description: 'A write up of some of my most recent and impactful work.',
     },
   },
 ]
