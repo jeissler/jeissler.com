@@ -12,8 +12,16 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import Portfolio from '@/portfolio/PORTFOLIO.md'
 import PortfolioMarkdown from '@/portfolio/PORTFOLIO.md?raw'
+
+onMounted(() => {
+  document.querySelectorAll('a').forEach((link) => {
+    link.setAttribute('target', '_blank')
+    link.setAttribute('rel', 'noopener noreferrer')
+  })
+})
 </script>
 
 <style scoped>
