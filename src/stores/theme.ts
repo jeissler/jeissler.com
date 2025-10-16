@@ -14,7 +14,7 @@ export const useThemeStore = defineStore('theme', () => {
     set: (val: boolean) => {
       theme.value = val ? themes[1] : themes[0]
       if (isClient) {
-        localStorage.setItem('theme', theme.value)
+        localStorage.setItem('theme', theme.value as string)
       }
     },
   })
