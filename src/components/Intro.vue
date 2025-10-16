@@ -34,6 +34,12 @@
       >
         Contact
       </router-link>
+      <router-link
+        :to="{ name: 'portfolio' }"
+        class="hover:underline contrast:text-indigo-200 contrast:hover:text-white"
+      >
+        Portfolio
+      </router-link>
     </nav>
   </section>
 </template>
