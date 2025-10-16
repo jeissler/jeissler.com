@@ -8,7 +8,7 @@ import { transformHtmlTemplate } from '@unhead/vue/server'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const distDir = path.resolve(__dirname, 'dist')
-const routes = ['/', '/contact']
+const routes = ['/', '/contact', '/portfolio', '/portfolio/markdown']
 
 // Read manifest - Vite 7+ generates it in .vite subdirectory
 const manifestPath = path.join(distDir, '.vite', 'manifest.json')
