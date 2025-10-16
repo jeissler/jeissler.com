@@ -18,6 +18,8 @@ import PortfolioMarkdown from '@/portfolio/PORTFOLIO.md?raw'
 
 onMounted(() => {
   document.querySelectorAll('a').forEach((link) => {
+    if (link.hostname === window.location.hostname) return
+
     link.setAttribute('target', '_blank')
     link.setAttribute('rel', 'noopener noreferrer')
   })
