@@ -17,11 +17,14 @@ import PortfolioMarkdown from '@/portfolio/PORTFOLIO.md?raw'
 </script>
 
 <style scoped>
-@reference 'tailwindcss';
 @reference '@/styles/main.css';
 
 code {
   white-space: pre-wrap;
+}
+
+button {
+  @apply cursor-pointer hover:underline;
 }
 
 ::v-deep() {
@@ -47,8 +50,7 @@ code {
     @apply mb-3 px-10;
   }
 
-  a,
-  button {
+  a {
     @apply font-bold text-brand-contrast hover:underline;
   }
 
