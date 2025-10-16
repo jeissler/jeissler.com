@@ -8,7 +8,8 @@ const routes = [
     component: () => import('@/pages/Home.vue'),
     meta: {
       title: 'Home',
-      description: 'Howdy! I am a maker, doer and way-finding software engineer.',
+      description:
+        'Howdy! I am a maker, doer and way-finding Software Engineer in Kansas City, MO.',
     },
   },
   {
@@ -28,6 +29,13 @@ const routes = [
       title: 'Portfolio Projects',
       description: 'A write up of some of my most recent and impactful work.',
     },
+    children: [
+      {
+        path: 'markdown',
+        name: 'portfolio-markdown',
+        component: () => import('@/pages/Portfolio.vue'),
+      },
+    ],
   },
 ]
 
