@@ -3,18 +3,24 @@
     <div class="max-w-7xl mx-auto">
       <nav class="text-sm font-bold mb-6">
         <button @click="$router.back()">« Back</button> |
-        <router-link :to="{ name: 'portfolio-markdown' }">View as markdown</router-link>
+        <router-link :to="{ name: showMarkdown ? 'portfolio' : 'portfolio-markdown' }">
+          View as {{ showMarkdown ? 'HTML' : 'Markdown' }}
+        </router-link>
       </nav>
-      <code v-if="$route.name === 'portfolio-markdown'" v-html="PortfolioMarkdown" />
+      <code v-if="showMarkdown" v-html="PortfolioMarkdown" />
       <Portfolio v-else />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import Portfolio from '@/portfolio/PORTFOLIO.md'
 import PortfolioMarkdown from '@/portfolio/PORTFOLIO.md?raw'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const showMarkdown = computed(() => route.name === 'portfolio-markdown')
 
 onMounted(() => {
   document.querySelectorAll('a').forEach((link) => {
