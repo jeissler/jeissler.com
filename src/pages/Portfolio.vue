@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-10 pb-15 px-5 bg-brand contrast:bg-white">
-    <div class="max-w-7xl mx-auto">
+  <div class="pt-10 pb-15 px-5 bg-brand contrast:bg-white transition">
+    <div class="max-w-5xl mx-auto">
       <nav class="text-sm font-bold mb-6">
         <button @click="$router.back()">« Back</button> |
         <router-link :to="{ name: showMarkdown ? 'portfolio' : 'portfolio-markdown' }">
@@ -80,7 +80,7 @@ button {
 
   li ~ li,
   li:has(~ li) {
-    @apply md:w-1/2 md:flex-1;
+    @apply lg:w-1/2 lg:flex-1;
   }
 
   hr {
