@@ -4,10 +4,18 @@
   >
     <div class="mt-3">
       <h1 class="text-4xl md:text-6xl font-semibold mb-6 contrast:text-white">Jeremy Eissler</h1>
-      <p class="text-lg md:text-xl text-zinc-700 leading-relaxed max-w-md contrast:text-indigo-100">
+      <p
+        class="text-lg mb-6 md:text-xl text-zinc-700 leading-relaxed max-w-md contrast:text-indigo-100"
+      >
         I am a maker, doer and way-finding engineer. Focused on building accessable interfaces,
         scalable systems and delightful tools.
       </p>
+      <router-link
+        :to="{ name: 'portfolio' }"
+        class="font-semibold text-lg py-2 pr-2 hover:pl-6 duration-300"
+      >
+        Recent Work >
+      </router-link>
     </div>
     <nav class="mt-12 text-sm font-medium flex gap-6">
       <a
